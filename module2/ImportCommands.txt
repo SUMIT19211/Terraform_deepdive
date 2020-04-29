@@ -1,10 +1,10 @@
 #Use the values output by the JuniorAdminIssue.ps1 script
 
-terraform import --var-file="terraform.tfvars" module.vpc.aws_eip.nat[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_nat_gateway.this[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_route.private_nat_gateway[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table.private[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table_association.private[2] 
-terraform import --var-file="terraform.tfvars" module.vpc.aws_subnet.private[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table_association.public[2]
-terraform import --var-file="terraform.tfvars" module.vpc.aws_subnet.public[2]
+terraform import --var-file="terraform.tfvars" module.vpc.aws_eip.nat[2] eipalloc-08d4a574d0055f37e
+terraform import --var-file="terraform.tfvars" module.vpc.aws_nat_gateway.this[2]  nat-01e3f2944dba4a4cf
+terraform import --var-file="terraform.tfvars" module.vpc.aws_route.private_nat_gateway[2]  rtb-0f09560b1837b8dd9_0.0.0.0/0
+terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table.private[2] rtb-0f09560b1837b8dd9
+terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table_association.private[2] subnet-03752ff4c73c5d8a9/rtb-0f09560b1837b8dd9
+terraform import --var-file="terraform.tfvars" module.vpc.aws_subnet.private[2] subnet-03752ff4c73c5d8a9
+terraform import --var-file="terraform.tfvars" module.vpc.aws_route_table_association.public[2]  subnet-0008e517a771c5eaf/rtb-0e4c62fa580a34b67
+terraform import --var-file="terraform.tfvars" module.vpc.aws_subnet.public[2] subnet-0008e517a771c5eaf

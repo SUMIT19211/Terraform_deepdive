@@ -13,3 +13,4 @@ terraform plan -out app.tfplan
 
 terraform apply "app.tfplan"
 
+terraform init --backend-config="dynamodb_table=ddt-tfstatelock-21858" --backend-config="bucket=ddt-application-21858" --backend-config="profile=sallysue" --backend-config="region=us-east-1"

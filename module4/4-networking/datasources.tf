@@ -10,23 +10,25 @@ locals {
 
 data "template_file" "public_cidrsubnet" {
   count = data.external.configuration.result.vpc_subnet_count
+  #count = 2
 
   template = "$${cidrsubnet(vpc_cidr,8,current_count)}"
 
   vars = {
     vpc_cidr      = data.external.configuration.result.vpc_cidr_range
-    current_count = "${count.index * 2 + 1}"
+    current_count = count.index * 2 + 1
   }
 }
 
 data "template_file" "private_cidrsubnet" {
   count = data.external.configuration.result.vpc_subnet_count
+  #count = 2
 
   template = "$${cidrsubnet(vpc_cidr,8,current_count)}"
 
   vars = {
     vpc_cidr      = data.external.configuration.result.vpc_cidr_range
-    current_count = "${count.index * 2}"
+    current_count = count.index * 2
   }
 }
 

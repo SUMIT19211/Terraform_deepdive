@@ -10,3 +10,9 @@ terraform workspace new development
 terraform plan -out net.tfplan
 
 terraform apply "net.tfplan"
+
+
+
+terraform init --backend-config="dynamodb_table=ddt-tfstatelock-21858" --backend-config="bucket=ddt-networking-21858" --backend-config="profile=marymoe" --backend-config="region=us-east-1"
+
+

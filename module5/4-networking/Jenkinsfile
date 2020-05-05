@@ -1,15 +1,15 @@
 pipeline {
     agent any
     tools {
-        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.11.1"
     }
     parameters {
         string(name: 'LAMBDA_URL', defaultValue: '', description: 'URL to the Lamdba function')
         string(name: 'WORKSPACE', defaultValue: 'development', description:'workspace to use in Terraform')
         string(name: 'DYNAMODB_STATELOCK', defaultValue: 'ddt-tfstatelock', description:'DynamoDB table for state locking')
-        string(name: 'NETWORKING_BUCKET', defaultValue: '', description:'S3 bucket to use for state locking')
+        string(name: 'NETWORKING_BUCKET', defaultValue: 'ddt-networking-98463', description:'S3 bucket to use for state locking')
         string(name: 'REGION', defaultValue: 'us-east-1', description:'Region for resources')
-        string(name: 'DATASOURCE', defaultValue: '', description:'Table name for datasource')
+        string(name: 'DATASOURCE', defaultValue: 'ddt-datasource-45119', description:'Table name for datasource')
         
     }
     environment {
